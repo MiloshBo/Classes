@@ -1,0 +1,119 @@
+# https://www.udacity.com/wiki/classes
+
+class Maryo(object):
+    # position coordinates
+    x = 50
+    y = 0
+
+    # properties
+    alive = True
+
+    # action
+    def say_hi(self):
+        if self.alive:
+            print("It's me! Maryo!")
+        else:
+            print("This Maryo disappeared")
+
+    def poof(self):
+        self.alive = False
+
+
+class Tree(object):
+    # position coordinates
+    x = 60
+    y = 0
+
+    # properties
+    alive = True
+
+    size = 3
+
+    # actions
+    def grow(self):
+        if self.alive:
+            self.size += 1
+            print(f"Grew to be {self.size} meters tall")
+        else:
+            print("This tree disappeared.")
+
+    def poof(self):
+        self.alive = False
+
+
+class Monster(object):
+    # position coordinates
+    x = 85
+    y = 10
+
+    # properties
+    alive = True
+
+    size = 5
+
+    # action
+    def eat(self):
+        if self.alive:
+            self.size += 5
+            print("Yum!")
+        else:
+            print("The monster disappeared")
+
+    def proof(self):
+        self.alive = False
+
+
+class Character(object):
+    def __init__(self, x, y, size=None):
+        self.x = x
+        self.y = y
+        self.size = size
+        self.alive = True
+
+    def poof(self):
+        self.alive = False
+        print("Poof!")
+
+
+class Maryo(Character):
+    def say_hi(self):
+        if self.alive:
+            print("It's me! Maryo!")
+        else:
+            print("This Mario disappeared")
+
+
+class Tree(Character):
+    def grow(self):
+        if self.alive:
+            self.size += 1
+            print(f"Grew to be {self.size} metters tall!")
+        else:
+            print("This tree disappeared")
+
+
+class Monster(Character):
+    def eat(self):
+        if self.alive:
+            self.size += 5
+            print("Yum!")
+        else:
+            print("This monster disappeared")
+
+
+m, t, o = Maryo(50, 0), Tree(60, 0, 3), Monster(85, 10, 5)
+
+print(t.size)
+print(t.grow())
+print(t.size)
+print(o.size)
+print(o.eat())
+print(o.size)
+print(m.x, m.y)
+m.say_hi()
+m.poof()
+m.say_hi()
+print(m.alive)
+
+
+# Advanced
